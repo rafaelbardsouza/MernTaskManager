@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Form({input, setInput}){
+export default function Form({input, setInput, addTask}){
     return(
         <div>
             <input
@@ -9,7 +9,7 @@ export default function Form({input, setInput}){
             value={input}
             role="input"
             />
-            <button type="submit">Add</button>
+            <button type="submit" onClick={(e) => addTask(e)}>Add</button>
         </div>
     )
 }
