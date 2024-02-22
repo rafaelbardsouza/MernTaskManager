@@ -5,6 +5,13 @@ const dotenv = require('dotenv')
 
 dotenv.config()
 
+const {
+    getTasks,
+    createTask,
+    updateTask,
+    deleteTask,
+} = require('./controllers/taskController.js')
+
 const app = express()
 const port = process.env.PORT || 8000
 const connectionURL = process.env.MONGO_URI
@@ -19,3 +26,11 @@ mongoose.connect(connectionURL)
 .catch((err) => {
     console.log(err)
 })
+
+app.get('/tasks', getTasks)
+
+app.post('/tasks', createTask)
+
+app.put('/tasks/:id', updateTask)
+
+app.delete('/tasks/:id', deleteTask)
