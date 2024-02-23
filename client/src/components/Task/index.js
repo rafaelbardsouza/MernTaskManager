@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import Form from '../Form'
 import axios from '../../axios'
+import TaskList from '../TaskList';
 export default function Task(){
     const [input,setInput] = useState('');
     const [tasks, setTasks] = useState([]);
@@ -33,6 +34,7 @@ export default function Task(){
         <div>
             <h2>Task List</h2>
             <Form input={input} setInput={setInput} addTask={addTask}/>
+            <TaskList tasks={tasks} fetchData={fetchData}/>
         </div>
     )
 }
